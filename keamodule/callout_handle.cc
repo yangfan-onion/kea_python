@@ -39,6 +39,19 @@ CalloutHandle_getArgument(CalloutHandleObject *self, PyObject *args) {
         }
     }
 
+    if (strcmp(name, "query6") == 0 || strcmp(name, "response6") == 0) {
+        try {
+            Pkt6Ptr ptr;
+            self->handle->getArgument(name, ptr);
+            return (Pkt6_from_handle(ptr));
+        }
+        catch (const exception &e) {
+            PyErr_SetString(PyExc_TypeError, e.what());
+            return (0);
+        }
+    }
+
+
     if (strcmp(name, "command") == 0 || strcmp(name, "response") == 0) {
         try {
             ConstElementPtr ptr;
@@ -86,6 +99,21 @@ CalloutHandle_setArgument(CalloutHandleObject *self, PyObject *args) {
         }
         try {
             self->handle->setArgument(name, ((Pkt4Object *)value)->ptr);
+            Py_RETURN_NONE;
+        }
+        catch (const exception &e) {
+            PyErr_SetString(PyExc_TypeError, e.what());
+            return (0);
+        }
+    }
+
+    if (strcmp(name, "query6") == 0 || strcmp(name, "response6") == 0) {
+        if (!Pkt6_Check(value)) {
+            PyErr_SetString(PyExc_TypeError, "expected Pkt6 object");
+            return (0);
+        }
+        try {
+            self->handle->setArgument(name, ((Pkt6Object *)value)->ptr);
             Py_RETURN_NONE;
         }
         catch (const exception &e) {

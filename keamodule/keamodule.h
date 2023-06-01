@@ -5,6 +5,7 @@
 #include <log/macros.h>
 #include <dhcpsrv/lease.h>
 #include <dhcp/pkt4.h>
+#include <dhcp/pkt6.h>
 #include <dhcpsrv/cfgmgr.h>
 #include <dhcpsrv/lease_mgr.h>
 #include <dhcpsrv/host_mgr.h>
@@ -135,6 +136,18 @@ typedef struct {
 extern PyTypeObject Pkt4Type;
 extern PyObject *Pkt4_from_handle(isc::dhcp::Pkt4Ptr &ptr);
 extern int Pkt4_define();
+
+// pkt6.cc
+typedef struct {
+    PyObject_HEAD
+
+    isc::dhcp::Pkt6Ptr ptr;
+} Pkt6Object;
+
+#define Pkt6_Check(op) (Py_TYPE(op) == &Pkt6Type)
+extern PyTypeObject Pkt6Type;
+extern PyObject *Pkt6_from_handle(isc::dhcp::Pkt6Ptr &ptr);
+extern int Pkt6_define();
 
 // option.cc
 typedef struct {

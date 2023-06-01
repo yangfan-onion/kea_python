@@ -186,6 +186,8 @@ static KeaConstant constants[] = {
     constant(RAI_OPTION_VIRTUAL_SUBNET_SELECT),
     constant(RAI_OPTION_VIRTUAL_SUBNET_SELECT_CTRL),
 
+    constant(D6O_NAME_SERVERS),
+
     {"IDENT_HWADDR", Host::IdentifierType::IDENT_HWADDR},
     {"IDENT_DUID", Host::IdentifierType::IDENT_DUID},
     {"IDENT_CIRCUIT_ID", Host::IdentifierType::IDENT_CIRCUIT_ID},

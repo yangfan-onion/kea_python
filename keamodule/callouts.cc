@@ -21,7 +21,9 @@ static const char *hooks[] = {
     "buffer4_send",
     "lease4_expire",
     "lease4_recover",
-    "command_processed"
+    "command_processed",
+    "pkt6_receive",
+    "pkt6_send",
 };
 #define num_hooks (sizeof(hooks) / sizeof(hooks[0]))
 

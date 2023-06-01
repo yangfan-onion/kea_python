@@ -34,6 +34,7 @@ PyInit_kea(void) {
         || CalloutHandle_define()
         || Lease4_define()
         || Pkt4_define()
+        || Pkt6_define()
         || Option_define()
         || CfgMgr_define()
         || SrvConfig_define()
