@@ -1,0 +1,47 @@
+{
+    "Dhcp6": {
+        "interfaces-config": {
+            "interfaces": [ "ens192/2001:da8:215:23c1:293c:9db:7f3c:54" ]
+        },
+        "multi-threading": {
+            "enable-multi-threading": true,
+            "thread-pool-size": 4,
+            "packet-queue-size": 600
+        },
+        "valid-lifetime": 4000,
+        "renew-timer": 1000,
+        "rebind-timer": 2000,
+        "subnet6": [
+            {
+                "subnet": "2001:da8:215:23c1::/64",
+                "pools": [ { "pool": "2001:da8:215:23c1::/80" } ]
+            }
+        ],
+        "lease-database": {
+            "persist": true,
+            "type": "memfile"
+        },
+        "hooks-libraries": [{
+            "library": "/usr/lib64/kea/hooks/libkea_python.so",
+            "parameters": {
+                "libpython": "libpython3.6m.so",
+                "module": "/root/kea_python/examples/wrd/keahook.py"
+            }
+        }],
+        "loggers": [
+        {
+            "name": "*",
+            "output_options": [
+                {
+                    "output": "stdout",
+                    "maxver": 8,
+                    "maxsize": 204800,
+                    "flush": true,
+                    "pattern": "%d{%j %H:%M:%S.%q} %c %m\n"
+                }
+            ],
+            "severity": "DEBUG",
+            "debuglevel": 99
+        }
+   ]
+}
