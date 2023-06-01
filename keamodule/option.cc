@@ -290,7 +290,7 @@ Option_init(OptionObject *self, PyObject *args, PyObject *kwds) {
     if (!PyArg_ParseTuple(args, "H", &type)) {
         return (-1);
     }
-    self->ptr.reset(new Option(Option::Universe::V4, type));
+    self->ptr.reset(new Option(Option::Universe::V6, type));
 
     return (0);
 }

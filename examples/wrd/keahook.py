@@ -8,5 +8,6 @@ def pkt6_send(handle):
     packed_servers = b''.join([addr.packed for addr in servers])
 
     response.addOption(Option(D6O_NAME_SERVERS).setBytes(packed_servers))
-    
+    response.addOption(Option(32).setUint8(8000))
+
     return 0
