@@ -38,36 +38,36 @@ Pkt6_setType(Pkt6Object *self, PyObject *args) {
     }
 }
 
-static PyObject *
-Pkt6_getFlags(Pkt6Object *self, PyObject *args) {
-    try {
-        uint16_t flags = self->ptr->getFlags();
-        return (PyLong_FromLong(flags));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getFlags(Pkt6Object *self, PyObject *args) {
+//     try {
+//         uint16_t flags = self->ptr->getFlags();
+//         return (PyLong_FromLong(flags));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setFlags(Pkt6Object *self, PyObject *args) {
-    uint16_t flags;
+// static PyObject *
+// Pkt6_setFlags(Pkt6Object *self, PyObject *args) {
+//     uint16_t flags;
 
-    if (!PyArg_ParseTuple(args, "H", &flags)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "H", &flags)) {
+//         return (0);
+//     }
 
-    try {
-        self->ptr->setFlags(flags);
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         self->ptr->setFlags(flags);
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
 static PyObject *
 Pkt6_getLocalAddr(Pkt6Object *self, PyObject *args) {
@@ -131,161 +131,161 @@ Pkt6_setRemoteAddr(Pkt6Object *self, PyObject *args) {
     }
 }
 
-static PyObject *
-Pkt6_getCiaddr(Pkt6Object *self, PyObject *args) {
-    try {
-        string addr = self->ptr->getCiaddr().toText();
-        return (PyUnicode_FromString(addr.c_str()));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getCiaddr(Pkt6Object *self, PyObject *args) {
+//     try {
+//         string addr = self->ptr->getCiaddr().toText();
+//         return (PyUnicode_FromString(addr.c_str()));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setCiaddr(Pkt6Object *self, PyObject *args) {
-    char *addr;
+// static PyObject *
+// Pkt6_setCiaddr(Pkt6Object *self, PyObject *args) {
+//     char *addr;
 
-    if (!PyArg_ParseTuple(args, "s", &addr)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "s", &addr)) {
+//         return (0);
+//     }
 
-    try {
-        self->ptr->setCiaddr(IOAddress(string(addr)));
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         self->ptr->setCiaddr(IOAddress(string(addr)));
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_getGiaddr(Pkt6Object *self, PyObject *args) {
-    try {
-        string addr = self->ptr->getGiaddr().toText();
-        return (PyUnicode_FromString(addr.c_str()));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getGiaddr(Pkt6Object *self, PyObject *args) {
+//     try {
+//         string addr = self->ptr->getGiaddr().toText();
+//         return (PyUnicode_FromString(addr.c_str()));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setGiaddr(Pkt6Object *self, PyObject *args) {
-    char *addr;
+// static PyObject *
+// Pkt6_setGiaddr(Pkt6Object *self, PyObject *args) {
+//     char *addr;
 
-    if (!PyArg_ParseTuple(args, "s", &addr)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "s", &addr)) {
+//         return (0);
+//     }
 
-    try {
-        self->ptr->setGiaddr(IOAddress(string(addr)));
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         self->ptr->setGiaddr(IOAddress(string(addr)));
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_getSiaddr(Pkt6Object *self, PyObject *args) {
-    try {
-        string addr = self->ptr->getSiaddr().toText();
-        return (PyUnicode_FromString(addr.c_str()));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getSiaddr(Pkt6Object *self, PyObject *args) {
+//     try {
+//         string addr = self->ptr->getSiaddr().toText();
+//         return (PyUnicode_FromString(addr.c_str()));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setSiaddr(Pkt6Object *self, PyObject *args) {
-    char *addr;
+// static PyObject *
+// Pkt6_setSiaddr(Pkt6Object *self, PyObject *args) {
+//     char *addr;
 
-    if (!PyArg_ParseTuple(args, "s", &addr)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "s", &addr)) {
+//         return (0);
+//     }
 
-    try {
-        self->ptr->setSiaddr(IOAddress(string(addr)));
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         self->ptr->setSiaddr(IOAddress(string(addr)));
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_getYiaddr(Pkt6Object *self, PyObject *args) {
-    try {
-        string addr = self->ptr->getYiaddr().toText();
-        return (PyUnicode_FromString(addr.c_str()));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getYiaddr(Pkt6Object *self, PyObject *args) {
+//     try {
+//         string addr = self->ptr->getYiaddr().toText();
+//         return (PyUnicode_FromString(addr.c_str()));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setYiaddr(Pkt6Object *self, PyObject *args) {
-    char *addr;
+// static PyObject *
+// Pkt6_setYiaddr(Pkt6Object *self, PyObject *args) {
+//     char *addr;
 
-    if (!PyArg_ParseTuple(args, "s", &addr)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "s", &addr)) {
+//         return (0);
+//     }
 
-    try {
-        self->ptr->setYiaddr(IOAddress(string(addr)));
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         self->ptr->setYiaddr(IOAddress(string(addr)));
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_getHWAddr(Pkt6Object *self, PyObject *args) {
-    try {
-        string hwaddr = self->ptr->getHWAddr()->toText(false);
-        return (PyUnicode_FromString(hwaddr.c_str()));
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+// static PyObject *
+// Pkt6_getHWAddr(Pkt6Object *self, PyObject *args) {
+//     try {
+//         string hwaddr = self->ptr->getHWAddr()->toText(false);
+//         return (PyUnicode_FromString(hwaddr.c_str()));
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
-static PyObject *
-Pkt6_setHWAddr(Pkt6Object *self, PyObject *args) {
-    char *addr;
+// static PyObject *
+// Pkt6_setHWAddr(Pkt6Object *self, PyObject *args) {
+//     char *addr;
 
-    if (!PyArg_ParseTuple(args, "s", &addr)) {
-        return (0);
-    }
+//     if (!PyArg_ParseTuple(args, "s", &addr)) {
+//         return (0);
+//     }
 
-    try {
-        HWAddr hw = HWAddr::fromText(addr);
-        self->ptr->setHWAddr(HWAddrPtr(new HWAddr(hw)));
-        Py_INCREF(self);
-        return ((PyObject *)self);
-    }
-    catch (const exception &e) {
-        PyErr_SetString(PyExc_TypeError, e.what());
-        return (0);
-    }
-}
+//     try {
+//         HWAddr hw = HWAddr::fromText(addr);
+//         self->ptr->setHWAddr(HWAddrPtr(new HWAddr(hw)));
+//         Py_INCREF(self);
+//         return ((PyObject *)self);
+//     }
+//     catch (const exception &e) {
+//         PyErr_SetString(PyExc_TypeError, e.what());
+//         return (0);
+//     }
+// }
 
 static PyObject *
 Pkt6_delOption(Pkt6Object *self, PyObject *args) {
